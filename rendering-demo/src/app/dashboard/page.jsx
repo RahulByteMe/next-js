@@ -12,10 +12,21 @@
 //         </div>
 //     )}
 
+import { Suspense } from "react";
+
+function DashboardContent(){
+    return <h2>Dashboard Content</h2>
+}
+
 export default function Dashboard() {
     return (
         <div>
-            <p> dashboard: {new Date().toLocaleTimeString()}</p>
+            <p>dashboard rendered at: {new Date().toLocaleTimeString()}</p>
+
+            <Suspense fallback={<p>Loading...</p>}>
+                <DashboardContent />
+            </Suspense>
 
         </div>
-    )}
+    )
+}
